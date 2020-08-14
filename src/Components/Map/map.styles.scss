@@ -1,0 +1,57 @@
+$color--primary: #423e37;
+$color--Secondary: #e3b23c;
+$color--Tertiary: #edebd7;
+$color--Quatery: #a39594;
+$color--Pentanary: #a39594;
+.selected {
+  fill: $color--primary !important;
+}
+.con {
+  fill: $color--Tertiary;
+  stroke: $color--primary;
+}
+.container {
+  display: flex;
+  justify-content: center;
+}
+.svgContainer {
+  margin: 2rem;
+  position: relative;
+  max-width: 800px;
+  max-height: 1000px;
+  width: 100%;
+  svg {
+    background-color: $color--Secondary;
+
+    border: 2px solid $color--primary;
+    .countries {
+      *:hover {
+        fill: $color--primary;
+        cursor: pointer;
+      }
+    }
+    #Background {
+      fill: $color--Secondary;
+      cursor: move;
+    }
+  }
+  .control {
+    display: flex;
+    justify-content: center;
+    .btn {
+      width: 15%;
+      margin: 0 1rem;
+      font-size: 2rem;
+      border: 2px solid $color--primary;
+      color: $color--primary;
+      background-color: transparent;
+      cursor: pointer;
+      &:focus,
+      &:hover {
+        outline: none;
+        background-color: $color--primary;
+        color: $color--Tertiary;
+      }
+    }
+  }
+}
