@@ -1,0 +1,60 @@
+@import "../Varible";
+.search {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 50rem;
+  overflow: scroll;
+  align-items: center;
+  transition: all 0.5s ease;
+  border-right: 2px solid $color--Tertiary;
+  &__input {
+    width: 100%;
+    padding: 1rem;
+    font-size: 2rem;
+    background-color: $color--Tertiary;
+    border: none;
+    border-radius: 3rem;
+    margin: 2rem 0;
+    color: $text--color-primary;
+    transition: all 0.2s ease-in;
+    &:active,
+    &:focus,
+    &:hover {
+      outline: none;
+      background-color: $color--Pentanary;
+      color: $text--color-primary;
+    }
+    &::placeholder {
+      color: $text--color-primary;
+    }
+  }
+}
+.result {
+  width: 100%;
+  .country {
+    display: block;
+    cursor: pointer;
+    width: 100%;
+    background-color: transparent;
+    border: 2px solid $text--color-primary;
+    color: $text--color-primary;
+    padding: 1rem;
+    margin-top: 1rem;
+    font-size: 1.7rem;
+    border-radius: 2rem;
+    transition: all 0.2s ease-in;
+    &:hover {
+      background-color: $text--color-primary;
+      color: $color--Tertiary;
+    }
+    &:active,
+    &:focus {
+      outline: none;
+      background-color: $text--color-primary;
+      color: $color--Tertiary;
+      border-color: $color--Tertiary;
+    }
+  }
+}
