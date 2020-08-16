@@ -4,7 +4,7 @@ import "./search.styles.scss";
 const Search = ({
   selectedCountryName,
   setSelectedCountryName,
-  setSelectedCountryCode,
+  CountryInfo,
 }) => {
   const onClickHandle = ({ target }) => {
     const allCountries = document.getElementsByTagName("path");
@@ -14,7 +14,7 @@ const Search = ({
       if (country.id === target.id) {
         id = target.id;
         setSelectedCountryName(country.name);
-        setSelectedCountryCode(id);
+        CountryInfo(id);
       }
     }
     for (let country of allCountries) {

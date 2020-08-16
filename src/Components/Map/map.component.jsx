@@ -4,7 +4,11 @@ import { Draggable } from "gsap/Draggable";
 import countries from "../Search/countries";
 import "./map.styles.scss";
 gsap.registerPlugin(Draggable);
-const Map = ({ setSelectedCountryName, setSelectedCountryCode }) => {
+const Map = ({
+  setSelectedCountryName,
+  setSelectedCountryCode,
+  CountryInfo,
+}) => {
   const [scaleCount, setScaleCount] = useState(1.3);
   const scale = (scale) => {
     let currentScale = scaleCount + scale;
@@ -45,7 +49,7 @@ const Map = ({ setSelectedCountryName, setSelectedCountryCode }) => {
     for (let country of countries) {
       if (country.id === target.id) {
         setSelectedCountryName(country.name);
-        setSelectedCountryCode(country.id);
+        CountryInfo(country.id);
       }
     }
     target.classList.add("selected");
