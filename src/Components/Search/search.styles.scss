@@ -1,14 +1,27 @@
 @import "../Varible";
+* {
+  scroll-behavior: smooth;
+}
 .search {
   padding: 1rem;
   display: flex;
   flex-direction: column;
   height: 100vh;
-  width: 50rem;
+  max-width: 40vw;
 
   align-items: center;
   transition: all 0.5s ease;
   border-right: 2px solid $color--Tertiary;
+  border-bottom: 2px solid $color--Tertiary;
+  @media (max-width: 800px) {
+    padding: 2rem 8rem;
+    height: 40rem;
+    max-width: 100vw;
+    width: 100%;
+  }
+  @media (max-width: 340px) {
+    padding: 1rem 4rem;
+  }
   &__input {
     width: 100%;
     padding: 1rem;
@@ -18,8 +31,12 @@
     border-radius: 3rem;
     margin: 2rem 0;
     color: $text--color-primary;
-
+    font-family: "Della Respira", serif;
     transition: all 0.2s ease-in;
+    @media (max-width: 340px) {
+      font-size: 1.5rem;
+      padding: 0.5rem;
+    }
     &:active,
     &:focus,
     &:hover {
@@ -47,6 +64,8 @@
     font-size: 1.7rem;
     border-radius: 2rem;
     transition: all 0.2s ease-in;
+    font-family: "Della Respira", serif;
+
     &:hover {
       background-color: $text--color-primary;
       color: $color--Tertiary;
@@ -57,6 +76,9 @@
       background-color: $text--color-primary;
       color: $color--Tertiary;
       border-color: $color--Tertiary;
+    }
+    @media (max-width: 340px) {
+      font-size: 1.5rem;
     }
   }
 }

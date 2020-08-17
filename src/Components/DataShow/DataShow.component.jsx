@@ -7,9 +7,10 @@ const DataShow = ({
   deathCases,
   heading,
   toShowSVG,
+  id,
 }) => {
   return (
-    <div className="datashow">
+    <div className="datashow" id={id}>
       {toShowSVG ? (
         <div className="loading">
           <svg
@@ -104,7 +105,7 @@ const DataShow = ({
           ></path>
         </svg>
         <h2 className="datashow__critical--text datashow__item--text">
-          Critical : {criticalCases > 0 ? criticalCases : "-"}
+          Critical : {criticalCases > 0 ? criticalCases : "?"}
         </h2>
       </div>
       <div className="datashow__confirmed datashow__item">
@@ -120,7 +121,7 @@ const DataShow = ({
           ></path>
         </svg>
         <h2 className="datashow__confirmed--text datashow__item--text">
-          Confirmed : {confirmedCases > 0 ? confirmedCases : "-"}
+          Confirmed : {confirmedCases > 0 ? confirmedCases : "?"}
         </h2>
       </div>
       <div className="datashow__recoverd datashow__item">
@@ -136,7 +137,7 @@ const DataShow = ({
           ></path>
         </svg>
         <h2 className="datashow__confirmed--text datashow__item--text">
-          Recovered : {recoveredCases > 0 ? recoveredCases : "-"}
+          Recovered : {recoveredCases > 0 ? recoveredCases : "?"}
         </h2>
       </div>
       <div className="datashow__died datashow__item">
@@ -152,7 +153,7 @@ const DataShow = ({
           />
         </svg>
         <h2 className="datashow__died--text datashow__item--text">
-          Died : {deathCases > 0 ? deathCases : "-"}
+          Died : {deathCases > 0 ? deathCases : "?"}
         </h2>
       </div>
     </div>

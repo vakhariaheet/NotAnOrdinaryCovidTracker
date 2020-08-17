@@ -15,6 +15,7 @@ export default function CountryData({
       confirmedCases={confirmedCases}
       heading={finalSelectedCountry}
       toShowSVG={true}
+      id="countryInfo"
     />
   );
 }

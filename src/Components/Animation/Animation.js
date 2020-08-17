@@ -1,15 +1,6 @@
-import { gsap, TimelineMax, TweenMax } from "gsap";
+import { gsap, TimelineMax } from "gsap";
 import { Draggable } from "gsap/Draggable";
 gsap.registerPlugin(Draggable);
-
-const fromScale = (id) => {
-  const tl = new TimelineMax();
-  tl.from(id, 5, {
-    scale: 0,
-    opacity: 0,
-    ease: "bounce.out",
-  });
-};
 const fromintro = () => {
   const tl = new TimelineMax();
   tl.set(".sanitizer", {
@@ -41,7 +32,7 @@ const forLoading = () => {
     },
     {
       opacity: 1,
-      display: "block",
+      display: "flex",
     }
   );
   tl.to(
@@ -50,7 +41,7 @@ const forLoading = () => {
     {
       y: -10,
       x: -10,
-      repeat: 3,
+      repeat: 2,
       yoyo: true,
     },
     "introCompleted"
@@ -62,7 +53,7 @@ const forLoading = () => {
       transformOrigin: "center",
       y: -90,
       x: -235,
-      repeat: 3,
+      repeat: 2,
       yoyo: true,
     },
     "introCompleted"
@@ -73,7 +64,7 @@ const forLoading = () => {
     {
       opacity: 0,
     },
-    "introCompleted+=5"
+    "introCompleted+=3"
   );
   tl.to(
     ".loading",
@@ -81,10 +72,22 @@ const forLoading = () => {
     {
       display: "none",
     },
-    "introCompleted+=5"
+    "introCompleted+=4"
   );
+  tl.to("#OBJECTS", 1, {
+    opacity: 1,
+  });
+  tl.to("#front", 1, {
+    transformOrigin: "center",
+    y: 10,
+    x: 10,
+  });
+  tl.to("#back", 1, {
+    transformOrigin: "center",
+    y: -95,
+    x: -245,
+  });
 };
 export const intro = fromintro;
-export const scale0 = fromScale;
 export const loading = forLoading;
 export default gsap;

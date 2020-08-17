@@ -14,6 +14,7 @@ const App = () => {
   const [recoveredCases, setRecoveredCases] = useState(0);
   const [deathCases, setDeathCases] = useState(0);
   const CountryInfo = (id) => {
+    loading();
     fetch(
       `https://covid-19-data.p.rapidapi.com/country/code?format=json&code=${id}`,
       {
@@ -33,7 +34,6 @@ const App = () => {
         setConfirmedCases(confirmed);
         setDeathCases(deaths);
         setRecoveredCases(recovered);
-        loading();
       })
       .catch((err) => {
         console.log(err);

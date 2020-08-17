@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import countries from "./countries";
 import "./search.styles.scss";
 
@@ -10,7 +10,7 @@ const Search = ({
   const onClickHandle = ({ target }) => {
     const allCountries = document.getElementsByTagName("path");
     var id = "";
-
+    window.location.href = "#countryInfo";
     for (let country of countries) {
       if (country.id === target.id) {
         id = target.id;
@@ -50,10 +50,13 @@ const Search = ({
                 className="country"
                 key={country.id}
                 onClick={onClickHandle}
+                href="#countryInfo"
               >
                 {country.name}
               </button>
             );
+          } else {
+            return undefined;
           }
         })}
       </div>

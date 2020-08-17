@@ -4,11 +4,16 @@
   width: 49%;
   position: relative;
   flex-direction: column;
-  height: 50%;
+  height: 100%;
   border: 2px solid $text--color-primary;
+  margin-bottom: 1rem;
+  @media (max-width: 600px) {
+    width: 80%;
+    margin: 2rem;
+  }
   &__item {
-    border: 2px solid $text--color-primary;
-    padding: 0.5rem;
+    border-top: 2px solid $text--color-primary;
+    padding: 1rem 0;
     background-color: transparent;
     display: flex;
     justify-content: center;
@@ -16,6 +21,7 @@
     &--text {
       font-size: 2rem;
       color: $text--color-primary;
+      font-family: "Della Respira", serif;
     }
     &:hover {
       color: $color--primary;
@@ -26,14 +32,16 @@
       }
     }
     &_svg {
-      height: 50px;
-      width: 50px;
+      height: 40px;
+      width: 40px;
       path {
         fill: $text--color-primary;
       }
     }
   }
   &__heading {
+    font-family: "Exo", sans-serif;
+    padding: 0.8rem;
     font-size: 4rem;
     color: $text--color-primary;
   }
@@ -45,7 +53,8 @@
   height: 100%;
   width: 100%;
   position: absolute;
-  display: flex;
+  display: none;
+
   justify-content: center;
   align-items: center;
   background-color: $color--primary;

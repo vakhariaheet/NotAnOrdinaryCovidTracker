@@ -6,35 +6,28 @@ const DailyCases = () => {
   const [confirmedCases, setConfirmedCases] = useState(0);
   const [recoveredCases, setRecoveredCases] = useState(0);
   const [deathCases, setDeathCases] = useState(0);
-  // useEffect((criticalCases, deathCases, recoveredCases, confirmedCases) => {
-  //   fetch("https://covid-19-data.p.rapidapi.com/totals?format=json", {
-  //     method: "GET",
-  //     headers: {
-  //       "x-rapidapi-host": "covid-19-data.p.rapidapi.com",
-  //       "x-rapidapi-key": "59d0b2c3c0msh86e340ae9c71bb8p13d7cbjsn0c90670232b6",
-  //     },
-  //   })
-  //     .then((response) => response.json())
-  //     .then((stats) => {
-  //       const { critical, confirmed, deaths, recovered } = stats[0];
-  //       setCriticalCases(critical);
-  //       setConfirmedCases(confirmed);
-  //       setRecoveredCases(recovered);
-  //       setDeathCases(deaths);
-  //       console.log(stats);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  //   return undefined;
-  // }, []);
-  // Repeat every 60000 milliseconds (2 minute)
-  //   critical: 5361549
-  // confirmed: 15085083
-  // critical: 63786
-  // date: "2020-07-21"
-  // deaths: 618504
-  // recovered: 9105030
+  useEffect((criticalCases, deathCases, recoveredCases, confirmedCases) => {
+    fetch("https://covid-19-data.p.rapidapi.com/totals?format=json", {
+      method: "GET",
+      headers: {
+        "x-rapidapi-host": "covid-19-data.p.rapidapi.com",
+        "x-rapidapi-key": "59d0b2c3c0msh86e340ae9c71bb8p13d7cbjsn0c90670232b6",
+      },
+    })
+      .then((response) => response.json())
+      .then((stats) => {
+        const { critical, confirmed, deaths, recovered } = stats[0];
+        setCriticalCases(critical);
+        setConfirmedCases(confirmed);
+        setRecoveredCases(recovered);
+        setDeathCases(deaths);
+        console.log(stats);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    return undefined;
+  }, []);
   return (
     <DataShow
       criticalCases={criticalCases}
