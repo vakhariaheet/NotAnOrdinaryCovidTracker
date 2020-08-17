@@ -8,25 +8,17 @@ Clone the Repo and open Repo folder in terminal<br/>
 
 `git clone https://github.com/heet-vakharia/NotAOridinaryCovidTracker.git`
 
-### `cd NotAOridinaryCovidTracker`
+`cd NotAOridinaryCovidTracker`
 
 Install Node Modules<br/>
-
-### `yarn`
-
+`yarn`
 OR
-
-### `npm install`
-
-### `yarn start`
-
+`npm install`
 Finally run<br/>
-
-### `yarn start`
+`yarn start`
 
 OR
-
-### `npm start`
+`npm start`
 
 web app would be open in the default browser<br />
 If not , Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
