@@ -6,7 +6,7 @@
 
 Clone the Repo and open Repo folder in terminal<br/>
 
-### `git clone https://github.com/heet-vakharia/NotAOridinaryCovidTracker.git`
+`git clone https://github.com/heet-vakharia/NotAOridinaryCovidTracker.git`
 
 ### `cd NotAOridinaryCovidTracker`
 
