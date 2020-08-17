@@ -29,14 +29,16 @@ const Search = ({
 
   return (
     <div className="search" id="search">
-      <input
-        type="text"
-        id="search__input"
-        value={selectedCountryName}
-        onChange={(event) => setSelectedCountryName(event.target.value)}
-        className="search__input"
-        placeholder="Search Countries"
-      />
+      <label for id="search_input">
+        <input
+          type="text"
+          id="search__input"
+          value={selectedCountryName}
+          onChange={(event) => setSelectedCountryName(event.target.value)}
+          className="search__input"
+          placeholder="Search Countries"
+        />
+      </label>
       <div className="result">
         {countries.map((country) => {
           if (
@@ -51,6 +53,7 @@ const Search = ({
                 key={country.id}
                 onClick={onClickHandle}
                 href="#countryInfo"
+                name={country.id}
               >
                 {country.name}
               </button>

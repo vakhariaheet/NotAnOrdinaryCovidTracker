@@ -40,7 +40,9 @@ const App = () => {
       });
   };
   useEffect(() => {
-    intro(".intro", ".sanitizer");
+    document.addEventListener("readystatechange", (event) => {
+      intro(".intro", ".sanitizer");
+    });
   }, []);
   return (
     <div className="App">
