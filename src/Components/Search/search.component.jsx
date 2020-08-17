@@ -29,7 +29,7 @@ const Search = ({
 
   return (
     <div className="search" id="search">
-      <label for id="search_input">
+      <label htmlFor="search_input">
         <input
           type="text"
           id="search__input"
