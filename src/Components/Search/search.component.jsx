@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import countries from "./countries";
 import "./search.styles.scss";
+
 const Search = ({
   selectedCountryName,
   setSelectedCountryName,
@@ -25,8 +26,9 @@ const Search = ({
       }
     }
   };
+
   return (
-    <div className="search">
+    <div className="search" id="search">
       <input
         type="text"
         id="search__input"

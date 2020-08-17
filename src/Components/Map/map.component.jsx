@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { gsap, TimelineMax } from "gsap";
+import { scale0 } from "../Animation/Animation";
 import { Draggable } from "gsap/Draggable";
 import countries from "../Search/countries";
 import "./map.styles.scss";
@@ -10,6 +11,9 @@ const Map = ({
   CountryInfo,
 }) => {
   const [scaleCount, setScaleCount] = useState(1.3);
+  useEffect(() => {
+    scale0("#map");
+  }, []);
   const scale = (scale) => {
     let currentScale = scaleCount + scale;
     const tl = new TimelineMax();
@@ -61,7 +65,7 @@ const Map = ({
     }
   };
   return (
-    <div className="map">
+    <div className="map" id="map">
       <div className="map__container">
         <svg
           id="WorldMap"

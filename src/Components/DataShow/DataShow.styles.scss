@@ -1,12 +1,11 @@
 @import "../Varible";
-.countrydata {
+.datashow {
   display: flex;
   width: 49%;
-
+  position: relative;
   flex-direction: column;
   height: 50%;
   border: 2px solid $text--color-primary;
-  padding: 0.5rem;
   &__item {
     border: 2px solid $text--color-primary;
     padding: 0.5rem;
@@ -40,5 +39,18 @@
   }
   &__footer {
     color: $text--color-primary;
+  }
+}
+.loading {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $color--primary;
+  svg {
+    height: 100px;
+    width: 100px;
   }
 }
