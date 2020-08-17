@@ -15,7 +15,7 @@ const fromintro = () => {
     opacity: 0,
     transformOrigin: "center",
   });
-  tl.to(".intro", 3, {
+  tl.to(".introContainer", 3, {
     opacity: 0,
     display: "none",
   });
