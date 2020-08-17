@@ -1,4 +1,5 @@
-#Not A Odinary Covid Tracker<br/>
+# Not A Odinary Covid Tracker<br/>
+
 ![Not A Oridary Covid Tracker](./design/main.png)
 
 ## How to Run Locally
