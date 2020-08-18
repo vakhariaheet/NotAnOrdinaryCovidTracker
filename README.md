@@ -8,7 +8,7 @@ Clone the Repo and open Repo folder in terminal<br/>
 
 `git clone https://github.com/heet-vakharia/NotAOridinaryCovidTracker.git`
 
-`cd NotAOridinaryCovidTracker`
+`cd NotAOrdinaryCovidTracker`
 
 Install Node Modules<br/>
 `yarn`
