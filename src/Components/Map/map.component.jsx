@@ -44,8 +44,8 @@ const Map = ({
     }
   };
   document.onkeydown = shortcut;
-
   const onClickHandle = ({ target }) => {
+    window.location.href = "#conuntryInfo";
     for (let country of countries) {
       if (country.id === target.id) {
         setSelectedCountryName(country.name);

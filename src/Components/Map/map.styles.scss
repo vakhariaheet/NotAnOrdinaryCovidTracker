@@ -20,9 +20,9 @@
       .countries {
         * {
           transition: all 0.2s ease-in 50ms;
+          cursor: pointer;
           &:hover {
             fill: $text--color-primary;
-            cursor: pointer;
           }
         }
       }

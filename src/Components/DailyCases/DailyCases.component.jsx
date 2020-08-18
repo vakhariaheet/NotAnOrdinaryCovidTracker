@@ -21,7 +21,6 @@ const DailyCases = () => {
         setConfirmedCases(confirmed);
         setRecoveredCases(recovered);
         setDeathCases(deaths);
-        console.log(stats);
       })
       .catch((err) => {
         console.log(err);

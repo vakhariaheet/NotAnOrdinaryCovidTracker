@@ -59,6 +59,7 @@ const App = () => {
           </svg>
         </div>
       </div>
+
       <div className="container">
         <div className="container__sidebar">
           <Search
