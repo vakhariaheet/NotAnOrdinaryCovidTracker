@@ -1,25 +1,17 @@
-import React, { useState, useEffect } from "react";
-import ReactMapGL, { Marker, FlyToInterpolator } from "react-map-gl";
+import React, { useEffect } from "react";
+import ReactMapGL, { Marker } from "react-map-gl";
 import markerIcon from "../../assets/maps-and-flags.png";
-import * as d3 from "d3-ease";
+
 import * as countries from "../Search/covid.json";
 import "./map.styles.scss";
 const Map = ({
   setSelectedCountryName,
   setSelectedCountryCode,
   CountryInfo,
+  defaultViewport,
+  setViewport,
+  viewport,
 }) => {
-  const defaultViewport = {
-    width: "68.5vw",
-    height: "100vh",
-    latitude: 23.022505,
-    longitude: 72.571365,
-    zoom: 3,
-    transitionDuration: 5000,
-    transitionInterpolator: new FlyToInterpolator(),
-    transitionEasing: d3.easeCubic,
-  };
-  const [viewport, setViewport] = useState(defaultViewport);
   useEffect(() => {
     if (window.width < 800) {
       console.log("hello");
@@ -36,18 +28,10 @@ const Map = ({
     }
   };
   document.onkeydown = shortcut;
-  const onClickHandle = (
-    { target },
-    { latitude, longitude, code, country }
-  ) => {
-    defaultViewport.latitude = latitude;
-    defaultViewport.longitude = longitude;
-    defaultViewport.zoom = 4;
-    setViewport(defaultViewport);
-
+  const onClickHandle = (country) => {
     window.location.href = "#conuntryInfo";
-    setSelectedCountryName(country);
-    CountryInfo(code);
+    setSelectedCountryName(country.country);
+    CountryInfo(country);
   };
   return (
     <div className="map" id="map">
@@ -73,7 +57,7 @@ const Map = ({
                     src={markerIcon}
                     alt=""
                     className="markerIcon"
-                    onClick={(e) => onClickHandle(e, country)}
+                    onClick={() => onClickHandle(country)}
                   />
                 </Marker>
               );

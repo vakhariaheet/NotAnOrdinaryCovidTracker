@@ -1,5 +1,6 @@
 import React from "react";
-import countries from "./countries";
+import * as countries from "./covid.json";
+
 import "./search.styles.scss";
 
 const Search = ({
@@ -7,24 +8,10 @@ const Search = ({
   setSelectedCountryName,
   CountryInfo,
 }) => {
-  const onClickHandle = ({ target }) => {
-    const allCountries = document.getElementsByTagName("path");
-    var id = "";
+  const onClickHandle = (country) => {
     window.location.href = "#countryInfo";
-    for (let country of countries) {
-      if (country.id === target.id) {
-        id = target.id;
-        setSelectedCountryName(country.name);
-        CountryInfo(id);
-      }
-    }
-    for (let country of allCountries) {
-      if (country.id !== id) {
-        country.classList.remove("selected");
-      } else {
-        country.classList.add("selected");
-      }
-    }
+    setSelectedCountryName(country.country);
+    CountryInfo(country);
   };
 
   return (
@@ -40,25 +27,27 @@ const Search = ({
         />
       </label>
       <div className="result">
-        {countries.map((country) => {
+        {countries.default.map((country) => {
           if (
-            country.name
+            country.country
               .toLowerCase()
-              .includes(selectedCountryName.toLowerCase())
+              .includes(selectedCountryName.toLowerCase()) &&
+            country.code
           ) {
             return (
               <button
-                id={country.id}
+                id={country.code}
                 className="country"
-                key={country.id}
-                onClick={onClickHandle}
+                key={country.code}
+                onClick={() => onClickHandle(country)}
                 href="#countryInfo"
-                name={country.id}
+                name={country.code}
               >
-                {country.name}
+                {country.country}
               </button>
             );
           } else {
+            console.log(country.code);
             return undefined;
           }
         })}

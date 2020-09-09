@@ -4,6 +4,8 @@ import Map from "./Components/Map/map.component";
 import Search from "./Components/Search/search.component";
 import DailyCases from "./Components/DailyCases/DailyCases.component";
 import CountryData from "./Components/CountryData/CountryData.compoenent";
+import { FlyToInterpolator } from "react-map-gl";
+import * as d3 from "d3-ease";
 import "./App.scss";
 
 const App = () => {
@@ -13,10 +15,28 @@ const App = () => {
   const [confirmedCases, setConfirmedCases] = useState(0);
   const [recoveredCases, setRecoveredCases] = useState(0);
   const [deathCases, setDeathCases] = useState(0);
-  const CountryInfo = (id) => {
+  const defaultViewport = {
+    width: "68.5vw",
+    height: "100vh",
+    latitude: 23.022505,
+    longitude: 72.571365,
+    zoom: 3,
+    transitionDuration: 5000,
+    transitionInterpolator: new FlyToInterpolator(),
+    transitionEasing: d3.easeCubic,
+  };
+  const [viewport, setViewport] = useState(defaultViewport);
+
+  const CountryInfo = async (country) => {
+    const { latitude, longitude, code } = country;
+    defaultViewport.latitude = latitude;
+    defaultViewport.longitude = longitude;
+    defaultViewport.zoom = 4;
+    setViewport(defaultViewport);
+
     loading();
-    fetch(
-      `https://covid-19-data.p.rapidapi.com/country/code?format=json&code=${id}`,
+    await fetch(
+      `https://covid-19-data.p.rapidapi.com/country/code?format=json&code=${code}`,
       {
         method: "GET",
         headers: {
@@ -72,6 +92,9 @@ const App = () => {
           <Map
             setSelectedCountryName={setSelectedCountryName}
             CountryInfo={CountryInfo}
+            defaultViewport={defaultViewport}
+            viewport={viewport}
+            setViewport={setViewport}
           />
           <div className="container__casesInfo">
             <DailyCases />
