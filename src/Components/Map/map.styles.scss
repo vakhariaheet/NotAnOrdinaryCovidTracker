@@ -3,59 +3,15 @@
 .map {
   display: flex;
   justify-content: center;
-  &__country {
-    fill: $color--Tertiary;
-    stroke: $color--primary;
-  }
-  &__container {
-    margin: 2rem;
-    position: relative;
-    max-width: 800px;
-    max-height: 60%;
-    width: 100%;
-    svg {
-      background-color: transparent;
+  overflow: hidden;
 
-      border: 2px solid $color--Tertiary;
-      .countries {
-        * {
-          transition: all 0.2s ease-in 50ms;
-          cursor: pointer;
-          &:hover {
-            fill: $text--color-primary;
-          }
-        }
-      }
-      #Background {
-        fill: transparent;
-        cursor: move;
-      }
-    }
-    .control {
-      display: flex;
-      justify-content: center;
-      .btn {
-        width: 15%;
-        margin: 0 1rem;
-        font-size: 3rem;
-        border: 2px solid $text--color-primary;
-        color: $text--color-primary;
-        background-color: transparent;
-        transition: all 0.2s ease-in;
-        cursor: pointer;
-        &:hover {
-          outline: none;
-          background-color: $text--color-primary;
-          color: $color--Tertiary;
-        }
-        &:active,
-        &:focus {
-          outline: none;
-          background-color: $text--color-primary;
-          color: $color--Tertiary;
-          border-color: $color--Tertiary;
-        }
-      }
-    }
+  max-height: 50vh;
+  margin: 1rem;
+  border: 0.2rem solid $text--color-primary;
+  @media (max-width: 800px) {
+    margin: 3rem 0;
   }
+}
+.markerIcon {
+  cursor: pointer;
 }
