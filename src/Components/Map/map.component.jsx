@@ -5,8 +5,7 @@ import markerIcon from "../../assets/maps-and-flags.png";
 import * as countries from "../Search/covid.json";
 import "./map.styles.scss";
 const Map = ({
-  setSelectedCountryName,
-  setSelectedCountryCode,
+  setSelectedCountry,
   CountryInfo,
   defaultViewport,
   setViewport,
@@ -14,7 +13,6 @@ const Map = ({
 }) => {
   useEffect(() => {
     if (window.width < 800) {
-      console.log("hello");
       defaultViewport.width = "100vw";
       setViewport(defaultViewport);
     }
@@ -29,8 +27,10 @@ const Map = ({
   };
   document.onkeydown = shortcut;
   const onClickHandle = (country) => {
-    window.location.href = "#conuntryInfo";
-    setSelectedCountryName(country.country);
+    if (window.width < 800) {
+      window.location.href = "#conuntryInfo";
+    }
+    setSelectedCountry(country.country);
     CountryInfo(country);
   };
   return (
@@ -38,7 +38,7 @@ const Map = ({
       <div className="map__container" id="map__container">
         <ReactMapGL
           {...viewport}
-          minZoom={2}
+          minZoom={1}
           attributionControl={false}
           className="mapboxComponent"
           onViewportChange={(nextViewport) => setViewport(nextViewport)}

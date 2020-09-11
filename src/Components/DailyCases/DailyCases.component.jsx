@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import DataShow from "../DataShow/DataShow.component";
+import ShowData from "../ShowData/ShowData.component";
 
 const DailyCases = () => {
   const [criticalCases, setCriticalCases] = useState(0);
@@ -28,7 +28,7 @@ const DailyCases = () => {
     return undefined;
   }, []);
   return (
-    <DataShow
+    <ShowData
       criticalCases={criticalCases}
       recoveredCases={recoveredCases}
       deathCases={deathCases}

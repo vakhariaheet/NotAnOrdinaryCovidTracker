@@ -3,18 +3,19 @@ import { intro, loading } from "./Components/Animation/Animation";
 import Map from "./Components/Map/map.component";
 import Search from "./Components/Search/search.component";
 import DailyCases from "./Components/DailyCases/DailyCases.component";
-import CountryData from "./Components/CountryData/CountryData.compoenent";
+import ShowData from "./Components/ShowData/ShowData.component";
 import { FlyToInterpolator } from "react-map-gl";
 import * as d3 from "d3-ease";
 import "./App.scss";
 
 const App = () => {
-  const [selectedCountryName, setSelectedCountryName] = useState("");
-  const [finalSelectedCountry, setFinalSelectedCountry] = useState("");
+  const [input, setInput] = useState("");
+  const [selectedCountry, setSelectedCountry] = useState("");
   const [criticalCases, setCriticalCases] = useState(0);
   const [confirmedCases, setConfirmedCases] = useState(0);
   const [recoveredCases, setRecoveredCases] = useState(0);
   const [deathCases, setDeathCases] = useState(0);
+  const [isDataLoaded, setIsDataLoaded] = useState(true);
   const defaultViewport = {
     width: "68.5vw",
     height: "100vh",
@@ -26,15 +27,15 @@ const App = () => {
     transitionEasing: d3.easeCubic,
   };
   const [viewport, setViewport] = useState(defaultViewport);
-
   const CountryInfo = async (country) => {
     const { latitude, longitude, code } = country;
     defaultViewport.latitude = latitude;
     defaultViewport.longitude = longitude;
     defaultViewport.zoom = 4;
     setViewport(defaultViewport);
-
     loading();
+    setIsDataLoaded(false);
+
     await fetch(
       `https://covid-19-data.p.rapidapi.com/country/code?format=json&code=${code}`,
       {
@@ -49,11 +50,12 @@ const App = () => {
       .then((response) => response.json())
       .then((data) => {
         const { critical, deaths, confirmed, recovered, country } = data[0];
-        setFinalSelectedCountry(country);
+        setSelectedCountry(country);
         setCriticalCases(critical);
         setConfirmedCases(confirmed);
         setDeathCases(deaths);
         setRecoveredCases(recovered);
+        setIsDataLoaded(true);
       })
       .catch((err) => {
         console.log(err);
@@ -64,6 +66,7 @@ const App = () => {
       intro(".intro", ".sanitizer");
     });
   }, []);
+
   return (
     <div className="App">
       <div className="introContainer">
@@ -83,14 +86,16 @@ const App = () => {
       <div className="container">
         <div className="container__sidebar">
           <Search
-            setSelectedCountryName={setSelectedCountryName}
-            selectedCountryName={selectedCountryName}
+            input={input}
+            setInput={setInput}
             CountryInfo={CountryInfo}
+            setSelectedCountry={setSelectedCountry}
+            selectedCountry={selectedCountry}
           />
         </div>
         <div className="container__items">
           <Map
-            setSelectedCountryName={setSelectedCountryName}
+            setSelectedCountry={setSelectedCountry}
             CountryInfo={CountryInfo}
             defaultViewport={defaultViewport}
             viewport={viewport}
@@ -98,12 +103,15 @@ const App = () => {
           />
           <div className="container__casesInfo">
             <DailyCases />
-            <CountryData
+            <ShowData
               criticalCases={criticalCases}
               recoveredCases={recoveredCases}
               deathCases={deathCases}
               confirmedCases={confirmedCases}
-              finalSelectedCountry={finalSelectedCountry}
+              selectedCountry={selectedCountry}
+              toShowSVG={true}
+              isDataLoaded={isDataLoaded}
+              id="countryInfo"
             />
           </div>
         </div>

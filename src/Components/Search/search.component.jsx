@@ -1,17 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import * as countries from "./covid.json";
 
 import "./search.styles.scss";
 
 const Search = ({
-  selectedCountryName,
-  setSelectedCountryName,
+  selectedCountry,
+  setSelectedCountry,
   CountryInfo,
+  input,
+  setInput,
 }) => {
+  useEffect(() => {
+    setInput(selectedCountry);
+  }, [selectedCountry, setInput]);
   const onClickHandle = (country) => {
-    window.location.href = "#countryInfo";
-    setSelectedCountryName(country.country);
+    if (window.width < 800) {
+      window.location.href = "#countryInfo";
+    }
+
+    setSelectedCountry(country.country);
     CountryInfo(country);
+    setInput(country.country);
   };
 
   return (
@@ -20,8 +29,8 @@ const Search = ({
         <input
           type="text"
           id="search__input"
-          value={selectedCountryName}
-          onChange={(event) => setSelectedCountryName(event.target.value)}
+          value={input}
+          onChange={(event) => setInput(event.target.value)}
           className="search__input"
           placeholder="Search Countries"
         />
@@ -29,9 +38,7 @@ const Search = ({
       <div className="result">
         {countries.default.map((country) => {
           if (
-            country.country
-              .toLowerCase()
-              .includes(selectedCountryName.toLowerCase()) &&
+            country.country.toLowerCase().includes(input.toLowerCase()) &&
             country.code
           ) {
             return (
@@ -47,7 +54,6 @@ const Search = ({
               </button>
             );
           } else {
-            console.log(country.code);
             return undefined;
           }
         })}
