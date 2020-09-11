@@ -33,7 +33,7 @@ const DailyCases = () => {
       recoveredCases={recoveredCases}
       deathCases={deathCases}
       confirmedCases={confirmedCases}
-      heading={"Global"}
+      selectedCountry={"Global"}
       toShowSVG={false}
     />
   );
