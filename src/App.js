@@ -35,7 +35,7 @@ const App = () => {
     defaultViewport.zoom = 4;
     setViewport(defaultViewport);
     loading();
-
+    console.log(country);
     const filteredCountry = countries.filter((data) => data === country)[0];
     const { critical, deaths, cases, recovered, active } = filteredCountry;
 
