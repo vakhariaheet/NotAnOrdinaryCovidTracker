@@ -16,6 +16,7 @@ const App = () => {
   const [recoveredCases, setRecoveredCases] = useState(0);
   const [deathCases, setDeathCases] = useState(0);
   const [isDataLoaded, setIsDataLoaded] = useState(true);
+  const [countries, setCountries] = useState([]);
   const defaultViewport = {
     width: "68.5vw",
     height: "100vh",
@@ -65,6 +66,12 @@ const App = () => {
     document.addEventListener("readystatechange", (event) => {
       intro(".intro", ".sanitizer");
     });
+    fetch("https://corona.lmao.ninja/v2/countries?sort=cases")
+      .then((resp) => resp.json())
+      .then((data) => {
+        setCountries(data);
+        console.log(data);
+      });
   }, []);
 
   return (
@@ -91,6 +98,7 @@ const App = () => {
             CountryInfo={CountryInfo}
             setSelectedCountry={setSelectedCountry}
             selectedCountry={selectedCountry}
+            countries={countries}
           />
         </div>
         <div className="container__items">
@@ -100,6 +108,7 @@ const App = () => {
             defaultViewport={defaultViewport}
             viewport={viewport}
             setViewport={setViewport}
+            countries={countries}
           />
           <div className="container__casesInfo">
             <DailyCases />

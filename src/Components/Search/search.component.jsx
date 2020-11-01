@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
-import * as countries from "./covid.json";
+import React, { useEffect, useState } from "react";
 
 import "./search.styles.scss";
 
 const Search = ({
+  countries,
   selectedCountry,
   setSelectedCountry,
   CountryInfo,
@@ -36,26 +36,19 @@ const Search = ({
         />
       </label>
       <div className="result">
-        {countries.default.map((country) => {
-          if (
-            country.country.toLowerCase().includes(input.toLowerCase()) &&
-            country.code
-          ) {
-            return (
-              <button
-                id={country.code}
-                className="country"
-                key={country.code}
-                onClick={() => onClickHandle(country)}
-                href="#countryInfo"
-                name={country.code}
-              >
-                {country.country}
-              </button>
-            );
-          } else {
-            return undefined;
-          }
+        {countries.map((country) => {
+          return (
+            <button
+              id={country.countryInfo.iso2}
+              className="country"
+              key={country.code}
+              onClick={() => onClickHandle(country)}
+              href="#countryInfo"
+              name={country.code}
+            >
+              {country.country}
+            </button>
+          );
         })}
       </div>
     </div>

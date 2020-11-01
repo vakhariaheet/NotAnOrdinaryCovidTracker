@@ -7,7 +7,7 @@ const DailyCases = () => {
   const [recoveredCases, setRecoveredCases] = useState(0);
   const [deathCases, setDeathCases] = useState(0);
   useEffect((criticalCases, deathCases, recoveredCases, confirmedCases) => {
-    fetch("https://covid-19-data.p.rapidapi.com/totals?format=json", {
+    fetch("https://corona.lmao.ninja/v2/all", {
       method: "GET",
       headers: {
         "x-rapidapi-host": "covid-19-data.p.rapidapi.com",
@@ -16,9 +16,9 @@ const DailyCases = () => {
     })
       .then((response) => response.json())
       .then((stats) => {
-        const { critical, confirmed, deaths, recovered } = stats[0];
+        const { critical, cases, deaths, recovered } = stats;
         setCriticalCases(critical);
-        setConfirmedCases(confirmed);
+        setConfirmedCases(cases);
         setRecoveredCases(recovered);
         setDeathCases(deaths);
       })

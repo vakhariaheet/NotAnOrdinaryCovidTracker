@@ -1,10 +1,9 @@
 import React, { useEffect } from "react";
 import ReactMapGL, { Marker } from "react-map-gl";
 import markerIcon from "../../assets/maps-and-flags.png";
-
-import * as countries from "../Search/covid.json";
 import "./map.styles.scss";
 const Map = ({
+  countries,
   setSelectedCountry,
   CountryInfo,
   defaultViewport,
@@ -45,16 +44,16 @@ const Map = ({
           mapStyle="mapbox://styles/heet-vakharia/ckeuzr84tak0719oc1kgj5c3m"
           mapboxApiAccessToken="pk.eyJ1IjoiaGVldC12YWtoYXJpYSIsImEiOiJja2V1ejJzam0zenRwMnNwYzVnOHRpb3RsIn0.ucjS-K-34-JJgvlfAbHmCw"
         >
-          {countries.default.map((country) => {
-            if (country.code) {
+          {countries.map((country) => {
+            if (country.countryInfo.iso2) {
               return (
                 <Marker
-                  key={country.code}
-                  latitude={country.latitude}
-                  longitude={country.longitude}
+                  key={country.countryInfo.iso2}
+                  latitude={country.countryInfo.lat}
+                  longitude={country.countryInfo.long}
                 >
                   <img
-                    src={markerIcon}
+                    src={country.countryInfo.flag}
                     alt=""
                     className="markerIcon"
                     onClick={() => onClickHandle(country)}
