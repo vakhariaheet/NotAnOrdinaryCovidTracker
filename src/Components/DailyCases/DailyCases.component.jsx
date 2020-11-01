@@ -6,6 +6,7 @@ const DailyCases = () => {
   const [confirmedCases, setConfirmedCases] = useState(0);
   const [recoveredCases, setRecoveredCases] = useState(0);
   const [deathCases, setDeathCases] = useState(0);
+  const [activeCases, setActiveCases] = useState(0);
   useEffect((criticalCases, deathCases, recoveredCases, confirmedCases) => {
     fetch("https://corona.lmao.ninja/v2/all", {
       method: "GET",
@@ -16,11 +17,12 @@ const DailyCases = () => {
     })
       .then((response) => response.json())
       .then((stats) => {
-        const { critical, cases, deaths, recovered } = stats;
+        const { critical, cases, deaths, recovered, active } = stats;
         setCriticalCases(critical);
         setConfirmedCases(cases);
         setRecoveredCases(recovered);
         setDeathCases(deaths);
+        setActiveCases(active);
       })
       .catch((err) => {
         console.log(err);
@@ -33,6 +35,7 @@ const DailyCases = () => {
       recoveredCases={recoveredCases}
       deathCases={deathCases}
       confirmedCases={confirmedCases}
+      activeCases={activeCases}
       selectedCountry={"Global"}
       toShowSVG={false}
     />

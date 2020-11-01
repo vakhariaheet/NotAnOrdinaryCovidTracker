@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import ReactMapGL, { Marker } from "react-map-gl";
-import markerIcon from "../../assets/maps-and-flags.png";
 import "./map.styles.scss";
 const Map = ({
   countries,

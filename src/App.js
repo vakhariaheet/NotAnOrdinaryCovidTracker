@@ -15,7 +15,7 @@ const App = () => {
   const [confirmedCases, setConfirmedCases] = useState(0);
   const [recoveredCases, setRecoveredCases] = useState(0);
   const [deathCases, setDeathCases] = useState(0);
-  const [isDataLoaded, setIsDataLoaded] = useState(true);
+  const [activeCases, setActiveCases] = useState(0);
   const [countries, setCountries] = useState([]);
   const defaultViewport = {
     width: "68.5vw",
@@ -29,38 +29,25 @@ const App = () => {
   };
   const [viewport, setViewport] = useState(defaultViewport);
   const CountryInfo = async (country) => {
-    const { latitude, longitude, code } = country;
-    defaultViewport.latitude = latitude;
-    defaultViewport.longitude = longitude;
+    const { lat, long } = country.countryInfo;
+    defaultViewport.latitude = lat;
+    defaultViewport.longitude = long;
     defaultViewport.zoom = 4;
     setViewport(defaultViewport);
     loading();
-    setIsDataLoaded(false);
 
-    await fetch(
-      `https://covid-19-data.p.rapidapi.com/country/code?format=json&code=${code}`,
-      {
-        method: "GET",
-        headers: {
-          "x-rapidapi-host": "covid-19-data.p.rapidapi.com",
-          "x-rapidapi-key":
-            "59d0b2c3c0msh86e340ae9c71bb8p13d7cbjsn0c90670232b6",
-        },
-      }
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        const { critical, deaths, confirmed, recovered, country } = data[0];
-        setSelectedCountry(country);
-        setCriticalCases(critical);
-        setConfirmedCases(confirmed);
-        setDeathCases(deaths);
-        setRecoveredCases(recovered);
-        setIsDataLoaded(true);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    const filteredCountry = countries.filter((data) => data === country)[0];
+    const { critical, deaths, cases, recovered, active } = filteredCountry;
+
+    setTimeout(() => {
+      const name = filteredCountry.country;
+      setSelectedCountry(name);
+      setCriticalCases(critical);
+      setConfirmedCases(cases);
+      setDeathCases(deaths);
+      setRecoveredCases(recovered);
+      setActiveCases(active);
+    }, 1000);
   };
   useEffect(() => {
     document.addEventListener("readystatechange", (event) => {
@@ -70,7 +57,6 @@ const App = () => {
       .then((resp) => resp.json())
       .then((data) => {
         setCountries(data);
-        console.log(data);
       });
   }, []);
 
@@ -117,9 +103,9 @@ const App = () => {
               recoveredCases={recoveredCases}
               deathCases={deathCases}
               confirmedCases={confirmedCases}
+              activeCases={activeCases}
               selectedCountry={selectedCountry}
               toShowSVG={true}
-              isDataLoaded={isDataLoaded}
               id="countryInfo"
             />
           </div>

@@ -6,6 +6,8 @@
   background-size: cover;
   background-blend-mode: multiply;
   position: relative;
+  height: 100%;
+  overflow-y: hidden;
   .container {
     z-index: 1;
     display: flex;
@@ -82,7 +84,7 @@
 }
 .shortcut-container {
   position: absolute;
-  height: 100vh;
+  height: 100%;
   width: 100vw;
   z-index: 600;
   display: flex;
