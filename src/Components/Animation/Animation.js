@@ -20,11 +20,7 @@ const fromintro = () => {
     display: "none",
   });
 };
-const forLoading = () => {
-  const tl = new TimelineMax();
-  tl.to("#countryName", { duration: 0.5, opacity: 0 });
-  tl.to("#countryName", { duration: 0.5, delay: 0.4, opacity: 1 });
-};
+
 export const intro = fromintro;
-export const loading = forLoading;
+
 export default gsap;

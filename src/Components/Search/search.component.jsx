@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
 import "./search.styles.scss";
 
@@ -36,20 +36,20 @@ const Search = ({
         />
       </label>
       <div className="result">
-        {countries.map((country) => {
-          return (
+        {countries
+          .filter((value, index) => index < 5)
+          .map((country) => (
             <button
               id={country.countryInfo.iso2}
               className="country"
-              key={country.code}
+              key={country.countryInfo.iso2}
               onClick={() => onClickHandle(country)}
               href="#countryInfo"
-              name={country.code}
+              name={country.countryInfo.iso2}
             >
               {country.country}
             </button>
-          );
-        })}
+          ))}
       </div>
     </div>
   );

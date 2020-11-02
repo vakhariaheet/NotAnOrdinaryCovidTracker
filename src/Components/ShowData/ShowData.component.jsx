@@ -1,5 +1,6 @@
 import React from "react";
 import CountUp from "react-countup";
+
 import "./ShowData.styles.scss";
 const DataShow = ({
   criticalCases,
@@ -33,7 +34,7 @@ const DataShow = ({
 
         <h2 className="datashow__critical--text datashow__item--text">
           {"   "}Active :{" "}
-          {criticalCases > 0 ? (
+          {activeCases > 0 ? (
             <CountUp start={-200} end={activeCases} duration={2.5} />
           ) : (
             0
