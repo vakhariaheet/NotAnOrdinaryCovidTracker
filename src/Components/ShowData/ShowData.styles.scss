@@ -50,16 +50,3 @@
     color: $text--color-primary;
   }
 }
-.loading {
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: $color--primary;
-  svg {
-    height: 100px;
-    width: 100px;
-  }
-}

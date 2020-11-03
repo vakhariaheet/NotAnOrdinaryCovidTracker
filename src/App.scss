@@ -12,6 +12,7 @@
   .container {
     z-index: 1;
     display: flex;
+    border-bottom: 3px dashed $text--color-primary;
     @media (max-width: 800px) {
       flex-direction: column;
     }
