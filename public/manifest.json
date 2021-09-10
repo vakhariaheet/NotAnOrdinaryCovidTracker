@@ -3,12 +3,12 @@
   "name": "Not A Ordinary Covid Tracker",
   "icons": [
     {
-      "src": "favicon.png",
+      "src": "images/192x192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "favicon.png",
+      "src": "images/512x512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
