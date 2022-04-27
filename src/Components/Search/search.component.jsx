@@ -36,20 +36,28 @@ const Search = ({
         />
       </label>
       <div className="result">
-        {countries.map((country) => {
-          return (
-            <button
-              id={country.countryInfo.iso2}
-              className="country"
-              key={country.code}
-              onClick={() => onClickHandle(country)}
-              href="#countryInfo"
-              name={country.code}
-            >
-              {country.country}
-            </button>
-          );
-        })}
+        {countries
+          .filter((country, index) =>
+            country.country.toLowerCase().includes(input.toLowerCase())
+          )
+          .map((country, index, arr) => {
+            if (index < 5) {
+              return (
+                <button
+                  id={country.countryInfo.iso2}
+                  className="country"
+                  key={country.countryInfo.iso2}
+                  onClick={() => onClickHandle(country)}
+                  href="#countryInfo"
+                  name={country.countryInfo.iso2}
+                >
+                  {country.country}
+                </button>
+              );
+            } else {
+              return undefined;
+            }
+          })}
       </div>
     </div>
   );

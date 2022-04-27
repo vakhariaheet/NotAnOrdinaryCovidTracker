@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { intro, loading } from "./Components/Animation/Animation";
+import { intro } from "./Components/Animation/Animation";
 import Map from "./Components/Map/map.component";
 import Search from "./Components/Search/search.component";
 import DailyCases from "./Components/DailyCases/DailyCases.component";
 import ShowData from "./Components/ShowData/ShowData.component";
+import GlobalChart from "./Components/GlobalChart/GlobalChart.component";
 import { FlyToInterpolator } from "react-map-gl";
 import * as d3 from "d3-ease";
 import "./App.scss";
+import CountryChart from "./Components/CountryChart/CountryChart.component";
 
 const App = () => {
   const [input, setInput] = useState("");
@@ -34,8 +36,6 @@ const App = () => {
     defaultViewport.longitude = long;
     defaultViewport.zoom = 4;
     setViewport(defaultViewport);
-    loading();
-    console.log(country);
     const filteredCountry = countries.filter((data) => data === country)[0];
     const { critical, deaths, cases, recovered, active } = filteredCountry;
 
@@ -86,6 +86,14 @@ const App = () => {
             selectedCountry={selectedCountry}
             countries={countries}
           />
+          <CountryChart
+            criticalCases={criticalCases}
+            recoveredCases={recoveredCases}
+            deathCases={deathCases}
+            confirmedCases={confirmedCases}
+            activeCases={activeCases}
+            selectedCountry={selectedCountry}
+          />
         </div>
         <div className="container__items">
           <Map
@@ -105,11 +113,13 @@ const App = () => {
               confirmedCases={confirmedCases}
               activeCases={activeCases}
               selectedCountry={selectedCountry}
-              toShowSVG={true}
               id="countryInfo"
             />
           </div>
         </div>
+      </div>
+      <div className="globalChartContainer">
+        <GlobalChart countries={countries} />
       </div>
     </div>
   );
