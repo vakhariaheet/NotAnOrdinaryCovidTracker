@@ -1,19 +1,18 @@
-@import "../Varible";
+@import '../Varible';
 
 .map {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
 
-  max-height: 50vh;
-  margin: 1rem;
-  border: 0.2rem solid $text--color-primary;
-  @media (max-width: 800px) {
-    margin: 3rem 0;
-  }
+	max-height: 50vh;
+	margin: 1rem;
+	border: 0.2rem solid $text--color-primary;
+	@media (max-width: 800px) {
+		margin: 3rem 0;
+	}
 }
 .markerIcon {
-  cursor: pointer;
-  height: 15px;
+	cursor: pointer;
 }

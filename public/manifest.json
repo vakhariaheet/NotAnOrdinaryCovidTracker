@@ -1,20 +1,26 @@
 {
-  "short_name": "Covid ",
-  "name": "Not A Ordinary Covid Tracker",
-  "icons": [
-    {
-      "src": "images/192x192.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "images/512x512.png",
-      "type": "image/png",
-      "sizes": "512x512"
-    }
-  ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+	"short_name": "Covid Tracker",
+	"name": "Not A Ordinary Covid Tracker",
+	"icons": [
+		{
+			"src": "images/192x192.png",
+			"type": "image/png",
+			"sizes": "192x192"
+		},
+		{
+			"src": "images/512x512.png",
+			"type": "image/png",
+			"sizes": "512x512"
+		},
+		{
+			"src": "./images/vector.svg",
+			"sizes": "196x196",
+			"type": "image/png",
+			"purpose": "any maskable"
+		}
+	],
+	"start_url": ".",
+	"display": "standalone",
+	"theme_color": "#000000",
+	"background_color": "#ffffff"
 }
