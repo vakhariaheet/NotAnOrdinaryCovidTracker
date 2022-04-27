@@ -1,6 +1,6 @@
 # Not A Ordinary Covid Tracker<br/>
 
-![Not A Oridary Covid Tracker](./design/main.png)
+![Not A Oridary Covid Tracker](./public/images/preview.png)
 
 ## How to Run Locally
 
