@@ -2,7 +2,16 @@ import React from 'react';
 import CountUp from 'react-countup';
 
 import './ShowData.styles.scss';
-const DataShow = ({
+export interface ShowDataProps {
+	criticalCases: number;
+	recoveredCases: number;
+	confirmedCases: number;
+	deathCases: number;
+	selectedCountry: string;
+	activeCases: number;
+	id: string;
+}
+const ShowData: React.FC<ShowDataProps> = ({
 	criticalCases,
 	recoveredCases,
 	confirmedCases,
@@ -133,4 +142,4 @@ const DataShow = ({
 		</div>
 	);
 };
-export default DataShow;
+export default ShowData;

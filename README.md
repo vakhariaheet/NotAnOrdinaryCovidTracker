@@ -1,4 +1,4 @@
-# Not A Odinary Covid Tracker<br/>
+# Not A Ordinary Covid Tracker<br/>
 
 ![Not A Oridary Covid Tracker](./design/main.png)
 
