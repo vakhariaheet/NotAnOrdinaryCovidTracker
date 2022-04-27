@@ -1,96 +1,96 @@
-@import "./Components/Varible";
+@import './Components/Varible';
 
 .App {
-  text-align: center;
-  background: rgba(0, 0, 0, 0.589) url("./assets/background.jpeg") fixed;
-  background-size: cover;
-  background-blend-mode: multiply;
-  position: relative;
-  height: 100%;
-  overflow-y: hidden;
+	text-align: center;
+	background: rgba(0, 0, 0, 0.589) url('./assets/background.jpeg') fixed;
+	background-size: cover;
+	background-blend-mode: multiply;
+	position: relative;
+	height: 100%;
+	overflow-y: hidden;
 
-  .container {
-    z-index: 1;
-    display: flex;
-    border-bottom: 3px dashed $text--color-primary;
-    @media (max-width: 800px) {
-      flex-direction: column;
-    }
-    &__items {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-    }
-    &__casesInfo {
-      display: flex;
-      justify-content: space-around;
-      margin-bottom: 3rem;
-      @media (max-width: 600px) {
-        flex-direction: column-reverse;
-        width: 100vw;
-        align-items: center;
-      }
-    }
-  }
+	.container {
+		z-index: 1;
+		display: flex;
+		border-bottom: 3px dashed $text--color-primary;
+		@media (max-width: 800px) {
+			flex-direction: column;
+		}
+		&__items {
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-around;
+		}
+		&__casesInfo {
+			display: flex;
+			justify-content: space-around;
+			margin-bottom: 3rem;
+			@media (max-width: 600px) {
+				flex-direction: column-reverse;
+				width: 100vw;
+				align-items: center;
+			}
+		}
+	}
 }
 .introContainer {
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  background-color: $color--primary;
-  z-index: 999;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	background-color: $color--primary;
+	z-index: 999;
 }
 .intro {
-  height: 100vh;
-  width: 100vw;
-  position: absolute;
-  top: 0;
+	height: 100vh;
+	width: 100vw;
+	position: absolute;
+	top: 0;
 
-  background-color: $color--primary;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	background-color: $color--primary;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 
-  svg {
-    height: 50vh;
-    width: max-content;
+	svg {
+		height: 50vh;
+		width: max-content;
 
-    path {
-      animation: dMEchhbk_draw 2000ms linear 0ms forwards;
-      stroke-dasharray: 704 706;
-      stroke-dashoffset: 705;
-      stroke: $color--Quatery;
-      fill: none;
-    }
-  }
+		path {
+			animation: dMEchhbk_draw 2000ms linear 0ms forwards;
+			stroke-dasharray: 704 706;
+			stroke-dashoffset: 705;
+			stroke: $color--Quatery;
+			fill: none;
+		}
+	}
 }
 
 @keyframes dMEchhbk_draw {
-  100% {
-    stroke-dashoffset: 0;
-  }
+	100% {
+		stroke-dashoffset: 0;
+	}
 }
 @keyframes dMEchhbk_fade {
-  0% {
-    stroke-opacity: 1;
-  }
-  94.44444444444444% {
-    stroke-opacity: 1;
-  }
-  100% {
-    stroke-opacity: 0;
-  }
+	0% {
+		stroke-opacity: 1;
+	}
+	94.44444444444444% {
+		stroke-opacity: 1;
+	}
+	100% {
+		stroke-opacity: 0;
+	}
 }
 .selected {
-  fill: $text--color-primary !important;
+	fill: $text--color-primary !important;
 }
 .shortcut-container {
-  position: absolute;
-  height: 100%;
-  width: 100vw;
-  z-index: 600;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	position: absolute;
+	height: 100%;
+	width: 100vw;
+	z-index: 600;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
