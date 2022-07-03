@@ -1,26 +1,30 @@
 {
 	"short_name": "Covid Tracker",
-	"name": "Not A Ordinary Covid Tracker",
+	"name": "Covid Tracker:track lastest covid data",
 	"icons": [
 		{
 			"src": "images/192x192.png",
 			"type": "image/png",
-			"sizes": "192x192"
+			"sizes": "192x192",
+			"purpose": "any"
 		},
 		{
 			"src": "images/512x512.png",
 			"type": "image/png",
-			"sizes": "512x512"
+			"sizes": "512x512",
+			"purpose": "maskable"
 		},
 		{
-			"src": "./images/vector.svg",
-			"sizes": "196x196",
+			"src": "images/384x384.png",
 			"type": "image/png",
-			"purpose": "any maskable"
+			"sizes": "384x384",
+			"purpose": "any"
 		}
 	],
 	"start_url": ".",
 	"display": "standalone",
-	"theme_color": "#000000",
-	"background_color": "#ffffff"
+	"theme_color": "#2f4858",
+	"background_color": "#ffffff",
+	"orientation": "any",
+	"description": "Covid Tracker:track lastest covid data of your country and the world with graphs and animations. made with ♥️ by Heet Vakharia"
 }

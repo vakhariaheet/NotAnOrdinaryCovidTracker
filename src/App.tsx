@@ -56,7 +56,7 @@ const App = () => {
 		document.addEventListener('readystatechange', (event) => {
 			intro();
 		});
-		fetch('https://corona.lmao.ninja/v2/countries?sort=cases')
+		fetch('https://disease.sh/v3/covid-19/countries?sort=cases')
 			.then((resp) => resp.json())
 			.then((data) => {
 				setCountries(data);
